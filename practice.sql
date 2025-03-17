@@ -240,5 +240,20 @@ INSERT INTO Enrollments (EnrollmentID, StudentID, ProgramID, EnrollmentDate) VAL
 
 
 -----------------------------------Insertion----------------------------Ends-----------------------------
-    
+-----------------------------------join--query-------------------------starts-------------
+SELECT 
+    e.EnrollmentID,
+    s.StudentID, 
+    s.Name AS StudentName, 
+    s.Email, 
+    s.Phone, 
+    p.ProgramID, 
+    p.ProgramName, 
+    p.Duration AS ProgramDuration, 
+    e.EnrollmentDate
+FROM Enrollments e
+JOIN Students s ON e.StudentID = s.StudentID
+JOIN Programs p ON e.ProgramID = p.ProgramID;
+
+-----------------------------------join--query-------------------------ends-------------
 
