@@ -406,6 +406,56 @@ SELECT b.booking_id, t.first_name, t.last_name, tr.trip_name, b.booking_date, b.
 FROM Booking b
 JOIN Traveler t ON b.traveler_id = t.traveler_id
 JOIN Trip tr ON b.trip_id = tr.trip_id;
+###########################################################################
+ Step 1: Insert Sample Data into Tables
+INSERT INTO Traveler (first_name, last_name, email, phone) VALUES
+('Alice', 'Johnson', 'alice@example.com', '1234567890'),
+('Bob', 'Smith', 'bob@example.com', '9876543210'),
+('Charlie', 'Brown', 'charlie@example.com', '5551234567');
+
+INSERT INTO Trip (traveler_id, trip_name, start_date, end_date) VALUES
+(1, 'Summer Vacation to Europe', '2025-06-10', '2025-06-25'),
+(2, 'Business Trip to New York', '2025-07-15', '2025-07-20'),
+(3, 'Family Holiday to Bali', '2025-08-05', '2025-08-15');
+
+
+INSERT INTO Destination (name, country, description) VALUES
+('Paris', 'France', 'The city of love and fashion.'),
+('New York', 'USA', 'The city that never sleeps.'),
+('Bali', 'Indonesia', 'A tropical paradise with beautiful beaches.');
+
+INSERT INTO Trip_Destination (trip_id, destination_id) VALUES
+(1, 1),  -- Alice goes to Paris
+(2, 2),  -- Bob goes to New York
+(3, 3);  -- Charlie goes to Bali
+
+INSERT INTO Booking (traveler_id, trip_id, total_amount) VALUES
+(1, 1, 2500.00),
+(2, 2, 1800.00),
+(3, 3, 3200.00);
+
+
+INSERT INTO Payment (booking_id, amount, payment_method, status) VALUES
+(1, 2500.00, 'Credit Card', 'Completed'),
+(2, 1800.00, 'PayPal', 'Completed'),
+(3, 3200.00, 'Bank Transfer', 'Pending');
+
+INSERT INTO Transportation (transport_type, provider, details) VALUES
+('Flight', 'Air France', 'Economy class ticket to Paris'),
+('Train', 'Amtrak', 'Business class ticket to New York'),
+('Flight', 'Garuda Indonesia', 'First-class ticket to Bali');
+
+INSERT INTO Accommodation (name, location, room_type, price_per_night) VALUES
+('Hilton Paris', 'Paris, France', 'Deluxe', 200.00),
+('Marriott NYC', 'New York, USA', 'Executive Suite', 300.00),
+('Bali Resort', 'Bali, Indonesia', 'Ocean View', 150.00);
+
+INSERT INTO Review (traveler_id, booking_id, rating, comment) VALUES
+(1, 1, 5, 'Amazing trip to Paris!'),
+(2, 2, 4, 'Great business facilities in NYC.'),
+(3, 3, 5, 'Bali was breathtaking!');
+
+
 
 
 
