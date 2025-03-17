@@ -263,3 +263,19 @@ Step 1: Conceptual Model (High-Level Design)
 Entities & Relationships
 In the travel domain, key entities and their relationships can be defined as follows:
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
