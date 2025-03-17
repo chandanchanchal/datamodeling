@@ -77,3 +77,12 @@ CREATE TABLE Students_1NF (
     PRIMARY KEY (StudentID, Course)
 );
 
+1NF Table:
+StudentID	StudentName	Course	Marks
+1	        Alice	    Math	85
+1	        Alice	    Science	90
+2	        Bob	        Math	78
+3	        Charlie	    Science	92
+3	        Charlie	    Art	88
+
+
