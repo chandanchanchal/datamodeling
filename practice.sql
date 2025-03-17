@@ -38,3 +38,6 @@ INSERT INTO Departments (dept_id, dept_name) VALUES (101, 'HR');
 INSERT INTO Employees (emp_id, name, email, department_id, salary, hire_date)
 VALUES (5, 'Eve Adams', 'eve@example.com', 101, 65000, '2024-05-10');
 
+SELECT * FROM Employees;
+SELECT * FROM Departments;
+
