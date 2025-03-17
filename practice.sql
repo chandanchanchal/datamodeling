@@ -23,3 +23,13 @@ INSERT INTO Employees (emp_id, name, email, department_id, salary, hire_date)
 VALUES (2, NULL, 'bob@example.com', 102, 50000, '2024-02-01');
 -- This will fail as 'name' column does not allow NULL values
 
+Step 7: Create a Foreign Key Constraint
+
+CREATE TABLE Departments (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(100) NOT NULL
+);
+
+ALTER TABLE Employees
+ADD CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES Departments(dept_id);
+
