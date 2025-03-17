@@ -13,3 +13,13 @@ CREATE TABLE Employees (
     hire_date DATE DEFAULT (CURRENT_DATE) -- DEFAULT Constraint (Corrected)
 );
 
+Step 3: Insert Valid Data
+
+INSERT INTO Employees (emp_id, name, email, department_id, salary, hire_date)
+VALUES (1, 'Alice Johnson', 'alice@example.com', 101, 60000, '2024-01-15');
+
+Step 4: Test NOT NULL Constraint
+INSERT INTO Employees (emp_id, name, email, department_id, salary, hire_date)
+VALUES (2, NULL, 'bob@example.com', 102, 50000, '2024-02-01');
+-- This will fail as 'name' column does not allow NULL values
+
