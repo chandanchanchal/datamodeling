@@ -388,6 +388,25 @@ Verify Table Structure
 Go to Database Navigator in DBeaver.
 Expand TravelDB to view tables.
 
+Insert Sample Data 
+INSERT INTO Traveler (first_name, last_name, email, phone)
+VALUES ('Alice', 'Brown', 'alice@example.com', '1234567890');
+
+INSERT INTO Destination (name, country, description)
+VALUES ('Paris', 'France', 'City of Light and Romance');
+
+INSERT INTO Trip (traveler_id, trip_name, start_date, end_date)
+VALUES (1, 'Europe Tour', '2025-06-01', '2025-06-15');
+
+INSERT INTO Trip_Destination (trip_id, destination_id)
+VALUES (1, 1);
+Run Queries to Fetch Data
+Example: Get all bookings with traveler details
+SELECT b.booking_id, t.first_name, t.last_name, tr.trip_name, b.booking_date, b.total_amount
+FROM Booking b
+JOIN Traveler t ON b.traveler_id = t.traveler_id
+JOIN Trip tr ON b.trip_id = tr.trip_id;
+
 
 
 
