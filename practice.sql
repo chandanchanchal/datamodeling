@@ -275,6 +275,11 @@ Review: Ratings & feedback by travelers.
 
 Step 2: Logical Model (Detailed Attributes & Relationships)
 Now, we define attributes and relationships.
+One traveler can have many bookings.
+One trip can cover multiple destinations.
+One booking can have one or more payments.
+One booking involves one transportation mode and may have one accommodation.
+One traveler can give multiple reviews for different bookings.
 
 
 
