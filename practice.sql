@@ -152,3 +152,49 @@ CREATE TABLE StudentCourses_3NF (
     FOREIGN KEY (Course) REFERENCES Courses_3NF(Course)
 );
 
+3NF Model
+We modify the schema to reflect that:
+A teacher can teach multiple courses.
+A course can have multiple teachers.
+We need a TeacherCourses table to handle this many-to-many relationship.
+
+-- Student Table (Same as before)
+CREATE TABLE Students_3NF (
+    StudentID INT PRIMARY KEY,
+    StudentName VARCHAR(50)
+);
+
+-- Courses Table (Now only contains course details)
+CREATE TABLE Courses_3NF (
+    CourseID INT PRIMARY KEY,
+    CourseName VARCHAR(50)
+);
+
+-- Teachers Table (Stores teacher details)
+CREATE TABLE Teachers_3NF (
+    TeacherID INT PRIMARY KEY,
+    TeacherName VARCHAR(50)
+);
+
+-- Linking Table for Many-to-Many Relationship Between Courses and Teachers
+CREATE TABLE TeacherCourses (
+    TeacherID INT,
+    CourseID INT,
+    PRIMARY KEY (TeacherID, CourseID),
+    FOREIGN KEY (TeacherID) REFERENCES Teachers_3NF(TeacherID),
+    FOREIGN KEY (CourseID) REFERENCES Courses_3NF(CourseID)
+);
+
+-- StudentCourses Table (Same as before, but references CourseID now)
+CREATE TABLE StudentCourses_3NF (
+    StudentID INT,
+    CourseID INT,
+    Marks INT,
+    PRIMARY KEY (StudentID, CourseID),
+    FOREIGN KEY (StudentID) REFERENCES Students_3NF(StudentID),
+    FOREIGN KEY (CourseID) REFERENCES Courses_3NF(CourseID)
+);
+
+
+    
+
