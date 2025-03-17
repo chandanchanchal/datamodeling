@@ -60,3 +60,20 @@ The Courses column contains multiple values (not atomic).
 The Instructors column also contains multiple values.
 It violates the First Normal Form (1NF) rule.
 
+Step 1: Convert to First Normal Form (1NF)
+Definition of 1NF: A table is in 1NF if:
+It has a primary key.
+All columns contain atomic (indivisible) values.
+There are no repeating groups or arrays.
+
+######--Solution-----##########################################
+Converting the table to 1NF
+To bring the table into 1NF, we separate each course into a new row:
+CREATE TABLE Students_1NF (
+    StudentID INT,
+    StudentName VARCHAR(50),
+    Course VARCHAR(50),
+    Marks INT,
+    PRIMARY KEY (StudentID, Course)
+);
+
