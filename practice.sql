@@ -455,6 +455,35 @@ INSERT INTO Review (traveler_id, booking_id, rating, comment) VALUES
 (2, 2, 4, 'Great business facilities in NYC.'),
 (3, 3, 5, 'Bali was breathtaking!');
 
+2: Fetch Meaningful Travel Insights
+SELECT t.first_name, t.last_name, b.booking_id, tr.trip_name 
+FROM Traveler t
+JOIN Booking b ON t.traveler_id = b.traveler_id
+JOIN Trip tr ON b.trip_id = tr.trip_id;
+
+
+Find the Most Expensive Trip Booked
+SELECT t.first_name, t.last_name, tr.trip_name, b.total_amount
+FROM Booking b
+JOIN Traveler t ON b.traveler_id = t.traveler_id
+JOIN Trip tr ON b.trip_id = tr.trip_id
+ORDER BY b.total_amount DESC
+LIMIT 1;
+
+Retrieve Completed Payments
+SELECT p.payment_id, t.first_name, t.last_name, p.amount, p.payment_method, p.status
+FROM Payment p
+JOIN Booking b ON p.booking_id = b.booking_id
+JOIN Traveler t ON b.traveler_id = t.traveler_id
+WHERE p.status = 'Completed';
+
+Get the Most Popular Travel Destination
+SELECT d.name AS destination, COUNT(td.trip_id) AS total_trips
+FROM Trip_Destination td
+JOIN Destination d ON td.destination_id = d.destination_id
+GROUP BY d.name
+ORDER BY total_trips DESC
+LIMIT 1;
 
 
 
