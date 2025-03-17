@@ -85,4 +85,7 @@ StudentID	StudentName	Course	Marks
 3	        Charlie	    Science	92
 3	        Charlie	    Art	88
 
+#Definition of 2NF: A table is in 2NF if:
+It is in 1NF.
+All non-key columns are fully dependent on the whole primary key (No partial dependencies).
 
