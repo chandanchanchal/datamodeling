@@ -456,6 +456,7 @@ INSERT INTO Review (traveler_id, booking_id, rating, comment) VALUES
 (3, 3, 5, 'Bali was breathtaking!');
 
 2: Fetch Meaningful Travel Insights
+Fetch All Travelers Who Have Booked a Trip
 SELECT t.first_name, t.last_name, b.booking_id, tr.trip_name 
 FROM Traveler t
 JOIN Booking b ON t.traveler_id = b.traveler_id
