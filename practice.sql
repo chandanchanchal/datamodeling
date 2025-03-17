@@ -371,6 +371,23 @@ CREATE TABLE Review (
     FOREIGN KEY (booking_id) REFERENCES Booking(booking_id)
 );
 
+Open DBeaver.
+Click Database → New Connection → MySQL.
+Enter MySQL host, port, username, password.
+Click Finish.
+Create a New Database
+CREATE DATABASE TravelDB;
+USE TravelDB;
+
+Execute Table Creation Queries
+
+Copy & Paste the SQL scripts provided above into DBeaver’s SQL Editor.
+Click Run to execute.
+Verify Table Structure
+
+Go to Database Navigator in DBeaver.
+Expand TravelDB to view tables.
+
 
 
 
