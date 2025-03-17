@@ -10,5 +10,6 @@ CREATE TABLE Employees (
     email VARCHAR(100) UNIQUE,        -- UNIQUE Constraint
     department_id INT,                -- Foreign Key Constraint
     salary DECIMAL(10,2) CHECK (salary > 0),  -- CHECK Constraint
-    hire_date DATE DEFAULT CURRENT_DATE -- DEFAULT Constraint
+    hire_date DATE DEFAULT (CURRENT_DATE) -- DEFAULT Constraint (Corrected)
 );
+
