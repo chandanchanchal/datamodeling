@@ -189,3 +189,5 @@ JOIN Dim_Destination d ON f.destination_id = d.destination_id
 GROUP BY d.destination_name
 ORDER BY total_bookings DESC
 LIMIT 5;
+
+3. Total Bookings by Month
