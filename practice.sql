@@ -521,6 +521,21 @@ db.destinations.find().pretty()
 
 db.destinations.find({ "country": "France" }).pretty()
 
+Story 1: Personalized Travel Recommendations
+Business Problem:
+A travel agency wants to recommend destinations based on travelers' interests and budget.
+
+Data Insights:
+
+Fetch destinations with high ratings (above 4.7) to ensure quality recommendations.
+Filter destinations by budget to match the traveler's affordability.
+Prioritize destinations with iconic attractions.
+Query Implementation:
+db.destinations.find({
+  "rating": { $gt: 4.7 },
+  "average_cost": { $lte: 1800 }
+}).pretty();
+
 
 
 
