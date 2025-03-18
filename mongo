@@ -162,17 +162,54 @@ ALTER TABLE Dim_Destination ADD COLUMN country VARCHAR(255);
 ALTER TABLE Dim_Destination ADD COLUMN city VARCHAR(255);
 --------------------------------------------------------------------------
 
+
+INSERT INTO Dim_Traveler (full_name, email, phone)
+VALUES 
+    ('Alice Johnson', 'alice@example.com', '1234567890'),
+    ('Bob Smith', 'bob@example.com', '2345678901'),
+    ('Charlie Brown', 'charlie@example.com', '3456789012'),
+    ('David White', 'david@example.com', '4567890123'),
+    ('Emma Wilson', 'emma@example.com', '5678901234'),
+    ('Frank Harris', 'frank@example.com', '6789012345'),
+    ('Grace Lee', 'grace@example.com', '7890123456'),
+    ('Hannah Adams', 'hannah@example.com', '8901234567'),
+    ('Ian Thomas', 'ian@example.com', '9012345678'),
+    ('Jack Martin', 'jack@example.com', '0123456789');
+
+
 INSERT INTO Dim_Destination (destination_name, country, city)
-VALUES ('Paris', 'France', 'Paris');
+VALUES 
+    ('Paris', 'France', 'Paris'),
+    ('London', 'UK', 'London'),
+    ('New York', 'USA', 'New York'),
+    ('Tokyo', 'Japan', 'Tokyo'),
+    ('Sydney', 'Australia', 'Sydney'),
+    ('Berlin', 'Germany', 'Berlin'),
+    ('Dubai', 'UAE', 'Dubai'),
+    ('Rome', 'Italy', 'Rome'),
+    ('Toronto', 'Canada', 'Toronto'),
+    ('Barcelona', 'Spain', 'Barcelona');
+
 
 INSERT INTO Dim_Payment (payment_method, payment_status)
-VALUES ('Credit Card', 'Completed');
+VALUES 
+    ('Credit Card', 'Completed'),
+    ('Debit Card', 'Pending'),
+    ('PayPal', 'Completed'),
+    ('Bank Transfer', 'Failed'),
+    ('Google Pay', 'Completed'),
+    ('Apple Pay', 'Pending'),
+    ('UPI', 'Completed'),
+    ('Cash', 'Completed'),
+    ('Cryptocurrency', 'Failed'),
+    ('Credit Card', 'Completed');
+
 
 INSERT INTO Dim_Date (full_date, year, month, day)
-VALUES ('2025-06-15', 2025, 6, 15);
+VALUES 
+    ('2025-06-15', 2025, 6, 15),
+    ('2025-07-20', 2025, 7,
 
-INSERT INTO Fact_Booking (traveler_id, destination_id, payment_id, date_id, total_amount, booking_count)
-VALUES (1, 1, 1, 1, 1200.00, 1);
 
 Section 7: Querying the Data Warehouse
 1. Total Revenue by Destination
