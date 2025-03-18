@@ -75,3 +75,64 @@ Section 3: Designing the Data Warehouse Schema
 Fact Table	                    Measures	                        Granularity (1 row per...)
 Fact_Booking	                Total amount, booking count	        Booking ID
 
+Dimension Tables	            Attributes
+Dim_Traveler	                Traveler Name, Email, Phone
+Dim_Destination	                Destination Name, Country, City
+Dim_Payment                    	Payment Method, Payment Status
+Dim_Date	                    Date, Year, Month, Day
+
+Section 4: Implementing the Data Warehouse in MySQL (Star Schema)
+Step 2: Create the Database in DBeaver
+Open DBeaver.
+Connect to MySQL → Click New Connection → Select MySQL.
+Create a new database
+
+CREATE DATABASE TravelDWH;
+USE TravelDWH;
+
+Step 3: Create the Dimension Tables
+1. Dim_Traveler
+CREATE TABLE Dim_Traveler (
+    traveler_id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    phone VARCHAR(20)
+);
+2. Dim_Destination
+CREATE TABLE Dim_Destination (
+    destination_id INT PRIMARY KEY AUTO_INCREMENT,
+    destination_name VARCHAR(100),
+    country VARCHAR(50),
+    city VARCHAR(50)
+);
+
+3. Dim_Payment
+CREATE TABLE Dim_Payment (
+    payment_id INT PRIMARY KEY AUTO_INCREMENT,
+    payment_method ENUM('Credit Card', 'PayPal', 'Bank Transfer'),
+    payment_status ENUM('Completed', 'Pending', 'Failed')
+);
+
+4. Dim_Date
+CREATE TABLE Dim_Date (
+    date_id INT PRIMARY KEY AUTO_INCREMENT,
+    full_date DATE,
+    year INT,
+    month INT,
+    day INT
+);
+
+Step 4: Create the Fact Table (Fact_Booking)
+CREATE TABLE Fact_Booking (
+    booking_id INT PRIMARY KEY AUTO_INCREMENT,
+    traveler_id INT,
+    destination_id INT,
+    payment_id INT,
+    date_id INT,
+    total_amount DECIMAL(10,2),
+    booking_count INT,
+    FOREIGN KEY (traveler_id) REFERENCES Dim_Traveler(traveler_id),
+    FOREIGN KEY (destination_id) REFERENCES Dim_Destination(destination_id),
+    FOREIGN KEY (payment_id) REFERENCES Dim_Payment(payment_id),
+    FOREIGN KEY (date_id) REFERENCES Dim_Date(date_id)
+);
