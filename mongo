@@ -136,3 +136,20 @@ CREATE TABLE Fact_Booking (
     FOREIGN KEY (payment_id) REFERENCES Dim_Payment(payment_id),
     FOREIGN KEY (date_id) REFERENCES Dim_Date(date_id)
 );
+
+Section 5: Snowflake Schema Optimization
+ Step 5: Normalize Dim_Destination for Snowflake Schema
+
+1. Create a Dim_Country Table
+CREATE TABLE Dim_Country (
+    country_id INT PRIMARY KEY AUTO_INCREMENT,
+    country_name VARCHAR(50)
+);
+
+2. Modify Dim_Destination
+CREATE TABLE Dim_Destination (
+    destination_id INT PRIMARY KEY AUTO_INCREMENT,
+    destination_name VARCHAR(100),
+    country_id INT,
+    FOREIGN KEY (country_id) REFERENCES Dim_Country(country_id)
+);
