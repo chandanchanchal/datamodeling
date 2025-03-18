@@ -512,6 +512,14 @@ db.destinations.insertMany([
     "rating": 4.9
   }
 ]);
+###########################################################################################
+4.1 Fetch all destinations:
+
+db.destinations.find().pretty()
+
+4.2 Find destinations in a specific country:
+
+db.destinations.find({ "country": "France" }).pretty()
 
 
 
