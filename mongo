@@ -69,3 +69,9 @@ Dimension Tables: Store descriptive data (e.g., Traveler, Destination, Payment).
 Schema Types:
 Star Schema – Simpler structure with direct relationships.
 Snowflake Schema – Normalized structure for better data integrity.
+
+Section 3: Designing the Data Warehouse Schema
+ Step 1: Identify Fact & Dimension Tables
+Fact Table	                    Measures	                        Granularity (1 row per...)
+Fact_Booking	                Total amount, booking count	        Booking ID
+
