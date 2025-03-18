@@ -1,0 +1,44 @@
+Story 2: Understanding Popular Attractions
+Business Problem:
+A tourism board wants to know which attractions are the most frequently mentioned across different destinations.
+
+Data Insights:
+
+Identify attractions that appear in multiple destinations.
+Highlight attractions that drive tourism revenue.
+Query Implementation:
+db.destinations.aggregate([
+  { $unwind: "$attractions" },
+  { $group: { _id: "$attractions", count: { $sum: 1 } } },
+  { $sort: { count: -1 } }
+]);
+
+Story 3: Budgeting for Business Expansion
+Business Problem:
+A travel company wants to determine the average travel cost across all destinations before launching a new package deal.
+
+Data Insights:
+
+Calculate the overall average travel cost.
+Identify high-cost vs. low-cost travel locations.
+Query Implementation:
+db.destinations.aggregate([
+  {
+    $group: {
+      _id: null,
+      avgCost: { $avg: "$average_cost" }
+    }
+  }
+]);
+
+Story 4: Prioritizing High-Rated Destinations
+Business Problem:
+An online travel review platform wants to feature the highest-rated destinations on its homepage.
+
+Data Insights:
+
+Sort destinations by rating.
+Pick the top destinations for marketing.
+Query Implementation:
+db.destinations.find().sort({ "rating": -1 }).limit(3).pretty();
+
