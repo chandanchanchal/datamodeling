@@ -42,3 +42,6 @@ Pick the top destinations for marketing.
 Query Implementation:
 db.destinations.find().sort({ "rating": -1 }).limit(3).pretty();
 
+#######################################################################################################################
+aws dynamodb query --table-name CustomerOrders --key-condition-expression "OrderID = :orderid" --expression-attribute-values '{":orderid": {"S": "O1001"}}'
+
