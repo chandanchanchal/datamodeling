@@ -173,3 +173,11 @@ VALUES ('2025-06-15', 2025, 6, 15);
 
 INSERT INTO Fact_Booking (traveler_id, destination_id, payment_id, date_id, total_amount, booking_count)
 VALUES (1, 1, 1, 1, 1200.00, 1);
+
+Section 7: Querying the Data Warehouse
+1. Total Revenue by Destination
+
+SELECT d.destination_name, SUM(f.total_amount) AS total_revenue
+FROM Fact_Booking f
+JOIN Dim_Destination d ON f.destination_id = d.destination_id
+GROUP BY d.destination_name;
