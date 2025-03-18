@@ -153,3 +153,18 @@ CREATE TABLE Dim_Destination (
     country_id INT,
     FOREIGN KEY (country_id) REFERENCES Dim_Country(country_id)
 );
+
+INSERT INTO Dim_Traveler (full_name, email, phone)
+VALUES ('Alice Johnson', 'alice@example.com', '1234567890');
+
+INSERT INTO Dim_Destination (destination_name, country, city)
+VALUES ('Paris', 'France', 'Paris');
+
+INSERT INTO Dim_Payment (payment_method, payment_status)
+VALUES ('Credit Card', 'Completed');
+
+INSERT INTO Dim_Date (full_date, year, month, day)
+VALUES ('2025-06-15', 2025, 6, 15);
+
+INSERT INTO Fact_Booking (traveler_id, destination_id, payment_id, date_id, total_amount, booking_count)
+VALUES (1, 1, 1, 1, 1200.00, 1);
