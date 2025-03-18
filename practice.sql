@@ -489,6 +489,30 @@ LIMIT 1;
 #################################-----MONGODB------#################################
 use travelDB
 
+db.destinations.insertMany([
+  {
+    "city": "Paris",
+    "country": "France",
+    "attractions": ["Eiffel Tower", "Louvre Museum"],
+    "average_cost": 1500,
+    "rating": 4.8
+  },
+  {
+    "city": "New York",
+    "country": "USA",
+    "attractions": ["Statue of Liberty", "Times Square"],
+    "average_cost": 2000,
+    "rating": 4.7
+  },
+  {
+    "city": "Tokyo",
+    "country": "Japan",
+    "attractions": ["Shibuya Crossing", "Mount Fuji"],
+    "average_cost": 1800,
+    "rating": 4.9
+  }
+]);
+
 
 
 
