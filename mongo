@@ -190,7 +190,11 @@ VALUES
     ('Toronto', 'Canada', 'Toronto'),
     ('Barcelona', 'Spain', 'Barcelona');
 
+-------------------------------------------------------------------------
+ALTER TABLE Dim_Payment 
+MODIFY COLUMN payment_method ENUM('Credit Card', 'PayPal', 'Bank Transfer', 'Debit Card', 'Google Pay', 'Apple Pay', 'UPI', 'Cash', 'Cryptocurrency');
 
+-------------------------------------------------------------------------
 INSERT INTO Dim_Payment (payment_method, payment_status)
 VALUES 
     ('Credit Card', 'Completed'),
